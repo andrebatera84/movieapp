@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviedbService } from 'src/app/services/moviedb.service';
 import { LoadingController } from '@ionic/angular';
+ 
 
 
 
@@ -12,7 +13,7 @@ import { LoadingController } from '@ionic/angular';
 export class MoviesPage implements OnInit {
 
   movies = [];
-  private param:string = "top_rated";
+  private param:string = "popular";
   constructor(private mDBService: MoviedbService, private loadingController: LoadingController) { }
 
   ngOnInit() {

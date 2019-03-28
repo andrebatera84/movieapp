@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap, catchError } from 'rxjs/operators'; 
+import { tap, catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -18,11 +18,11 @@ export class MoviedbService {
   constructor(private http: HttpClient){ }
 
   //retornar lista de tip rating movies
-  getTopRatedMovies() {
+  //getTopRatedMovies() {
     // retorna o resultado baseado da URL de requisição
-    return this.http.get(`${this.URL_API}/movie/top_rated?api_key=${this.API_KEY}&language=pt-BR`)
+    //return this.http.get(`${this.URL_API}/movie/top_rated?api_key=${this.API_KEY}&language=pt-BR`)
     //top_rated?api_key=<<api_key>>&language=en-US&page=1
-  }
+  //}
 
   // função (método) terá um retorno do tipo 
   getMovies(param:string): Observable<any> {
