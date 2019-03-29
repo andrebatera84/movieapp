@@ -1,9 +1,25 @@
-<ion-header>
+<ion-header *ngIf="movie">
   <ion-toolbar>
-    <ion-title>movieDetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{movie.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card class="welcome-card">
+    <ion-img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Genero: <ion-note *ngFor="let g of movie.genres">{{g.name}}</ion-note> {{movie.popularity}}</ion-card-subtitle>
+      <ion-card-title class="text-center">{{movie.title}}</ion-card-title>
+    </ion-card-header>´
+    <div *ngFor="let p of movie.production_companies">
+      <ion-img *ngIf="p.logo_path" src="https://image.tmdb.org/t/p/w500/{{p.logo_path}}" padding></ion-img>
+      <p *ngIf="!p.logo_path">{{p.name}}</p>
+    </div>
+    <ion-card-content>
+      <p>{{movie.overview}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
